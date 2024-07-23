@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import AuthContext from './context/auth-context';
 import Auth from './context/Auth';
+import { Provider } from '../../jiraapplication/context/task';
 
 function App() {
   const [authStatus, setAuthStatus] = useState(false)
