@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import TaskCreate from './TaskCreate';
 
-function TaskShow({ task, onDelete, onUpdate }) {
+function TaskShow({ task}) {
   const [showEdit, setShowEdit] = useState(false);
   const handleDeleteClick = () => {
     onDelete(task.id);
