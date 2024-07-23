@@ -1,37 +1,61 @@
-import { useState, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import './App.css';
+import TaskCreate from './components/TaskCreate';
+import TaskList from './components/TaskList';
+import { useState } from 'react';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 function App() {
-  const [ali, setAli] = useState(0);
-  const [kemal, setKemal] = useState(0);
-  useEffect(() => {
-    console.log("her renderda çalışır");
-  }); // her renderda çalışır
+  const [tasks, setTasks] = useState([]);
+  const createTask = async (title, taskDesc) => {
+    const response = await axios.post('http://localhost:3004/tasks', {
+      title,
+      taskDesc,
+    });
+    console.log(response);
+    const createdTasks = [...tasks, response.data];
+    setTasks(createdTasks);
+  };
+  const fetchTasks = async () => {
+    const response = await axios.get('http://localhost:3004/tasks');
+    debugger;
+    setTasks(response.data);
+  };
 
   useEffect(() => {
-    console.log("sadece ilk renderda çalışır");
-  },[]); // sadece ilk renderda çalışır
+    fetchTasks();
+  }, []);
 
-  useEffect(() => {
-    console.log("ali değiştiğinde çalışır");
-  },[ali]); // sadece ali değiştiğinde çalışır
-
-  useEffect(() => {
-    console.log("ali veya kemal değiştiğinde çalışır");
-  },[ali,kemal]); // sadece ali veya kemal değiştiğinde çalışır
+  const deleteTaskById = async (id) => {
+    await axios.delete(`http://localhost:3004/tasks/${id}`);
+    const afterDeletingTasks = tasks.filter((task) => {
+      return task.id !== id;
+    });
+    setTasks(afterDeletingTasks);
+  };
+  const editTaskById = async (id, updatedTitle, updatedTaskDesc) => {
+    await axios.put(`http://localhost:3004/tasks/${id}`, {
+      title: updatedTitle,
+      taskDesc: updatedTaskDesc,
+    });
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return { id, title: updatedTitle, taskDesc: updatedTaskDesc };
+      }
+      return task;
+    });
+    setTasks(updatedTasks);
+  };
 
   return (
     <div className="App">
-      <div className="firstDiv">
-        <button onClick={() => setAli(ali + 1)}>Ali ++</button>
-        <div>Ali:{ali}</div>
-      </div>
-      <div className="secondDiv">
-        <button onClick={() => setKemal(kemal + 1)}>Kemal ++</button>
-        <div>Kemal:{kemal}</div>
-      </div>
+      <TaskCreate onCreate={createTask} />
+      <h1>Görevler</h1>
+      <TaskList
+        tasks={tasks}
+        onDelete={deleteTaskById}
+        onUpdate={editTaskById}
+      />
     </div>
   );
 }
