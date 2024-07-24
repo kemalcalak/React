@@ -1,13 +1,14 @@
-import { createContext } from "react";
-import { useState } from "react";
-import axios from "axios";
+import { createContext } from 'react';
+import { useState } from 'react';
+import axios from 'axios';
 
 const TasksContext = createContext();
 
 function Provider({ children }) {
   const [tasks, setTasks] = useState([]);
   const createTask = async (title, taskDesc) => {
-    const response = await axios.post("http://localhost:3000/tasks", {
+    debugger;
+    const response = await axios.post('http://localhost:3000/tasks', {
       title,
       taskDesc,
     });
@@ -16,7 +17,7 @@ function Provider({ children }) {
     setTasks(createdTasks);
   };
   const fetchTasks = async () => {
-    const response = await axios.get("http://localhost:3000/tasks");
+    const response = await axios.get('http://localhost:3000/tasks');
     debugger;
     setTasks(response.data);
   };
@@ -40,16 +41,17 @@ function Provider({ children }) {
     });
     setTasks(updatedTasks);
   };
-
   const sharedValuesAndMethods = {
     tasks,
     createTask,
     fetchTasks,
-    deleteTaskById,
     editTaskById,
+    deleteTaskById,
   };
   return (
-    <TasksContext.Provider value={sharedValuesAndMethods}>{children}</TasksContext.Provider>
+    <TasksContext.Provider value={sharedValuesAndMethods}>
+      {children}
+    </TasksContext.Provider>
   );
 }
 
