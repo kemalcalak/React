@@ -1,0 +1,106 @@
+{
+  "users": [
+    {
+      "id": "eebf",
+      "name": "Jake Crist"
+    },
+    {
+      "id": "9b04",
+      "name": "Jerry Daugherty-Smith"
+    }
+  ],
+  "albums": [
+    {
+      "userId": 3,
+      "title": "Eskişehir",
+      "id": "15"
+    },
+    {
+      "userId": 3,
+      "title": "Oriental Rubber Bacon",
+      "id": "21"
+    },
+    {
+      "userId": 3,
+      "title": "Modern Bronze Chips",
+      "id": "22"
+    },
+    {
+      "userId": 3,
+      "title": "Small Plastic Shoes",
+      "id": "23"
+    },
+    {
+      "userId": 3,
+      "title": "Practical Granite Shirt",
+      "id": "24"
+    },
+    {
+      "userId": 3,
+      "title": "Recycled Rubber Keyboard",
+      "id": "25"
+    },
+    {
+      "userId": 3,
+      "title": "Intelligent Plastic Bacon",
+      "id": "26"
+    },
+    {
+      "userId": 3,
+      "title": "Licensed Wooden Pants",
+      "id": "27"
+    },
+    {
+      "userId": 3,
+      "title": "Oriental Frozen Soap",
+      "id": "28"
+    },
+    {
+      "id": "c789",
+      "userId": "eebf",
+      "title": "Tasty Concrete Gloves"
+    }
+  ],
+  "photos": [
+    {
+      "albumId": 15,
+      "url": "https://loremflickr.com/150/150/abstract?lock=240",
+      "id": "2"
+    },
+    {
+      "albumId": 15,
+      "url": "https://loremflickr.com/150/150/abstract?lock=13847",
+      "id": "3"
+    },
+    {
+      "albumId": 15,
+      "url": "https://loremflickr.com/150/150/abstract?lock=55640",
+      "id": "4"
+    },
+    {
+      "albumId": 15,
+      "url": "https://loremflickr.com/150/150/abstract?lock=42637",
+      "id": "6"
+    },
+    {
+      "id": "948b",
+      "albumId": "c789",
+      "url": "https://loremflickr.com/150/150/abstract?lock=7565336220008448"
+    },
+    {
+      "id": "e3a3",
+      "albumId": "c789",
+      "url": "https://loremflickr.com/150/150/abstract?lock=4316676432592896"
+    },
+    {
+      "id": "b1e8",
+      "albumId": "c789",
+      "url": "https://loremflickr.com/150/150/abstract?lock=6622366853496832"
+    },
+    {
+      "id": "8601",
+      "albumId": "c789",
+      "url": "https://loremflickr.com/150/150/abstract?lock=495552775061504"
+    }
+  ]
+}
