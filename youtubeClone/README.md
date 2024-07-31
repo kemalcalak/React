@@ -1,4 +1,3 @@
-Kopyala
 # YouTube Clone Application
 
 A modern YouTube clone application built with React JS and Material UI 5. This project showcases essential features such as video searching, playback, and user profiles, providing a seamless user experience.
